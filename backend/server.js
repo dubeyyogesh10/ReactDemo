@@ -1,6 +1,8 @@
 const express = require('express');
 const cors =  require('cors');
 const mongoose = require('mongoose');
+const exerciseRouter = require('./routes/exercise');
+const userRouter = require('./routes/user');
 
 /// env var in env file
 require('dotenv').config();
@@ -14,11 +16,9 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true});
 mongoose.connection.once('open', () => { console.log("Connected to MONGON DB"); })
 
-const exerciseRouter = require('./routes/exercise');
-const userRouter = require('./routes/user');
-
 app.use('/excercises',exerciseRouter);
 app.use('/users', userRouter);
+
 // sets cors
 app.use(cors());
 
