@@ -13,6 +13,7 @@ function App() {
   return (
 
     <Router>
+      <div className="container">
       <Navbar />
       <Route path= "/" exact component = {ExercisesList} />
       <Route path= "/edit/:id" exact component = {EditExercises} />
@@ -20,6 +21,7 @@ function App() {
       <Route path= "/user" exact component = {CreateUser} />
        <div className="container">
       Hello World
+    </div>
     </div>
     </Router>
    
